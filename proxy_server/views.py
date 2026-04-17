@@ -77,3 +77,13 @@ def health(_request):
             "usage": "Send requests to /proxy/<path> to forward to ngrok API",
         }
     )
+
+
+def health_live(_request):
+    return JsonResponse(
+        {
+            "status": "ok",
+            "service": "django-proxy",
+            "message": "Server is running",
+        }
+    )

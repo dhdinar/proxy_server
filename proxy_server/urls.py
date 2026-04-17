@@ -17,11 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from .views import health, proxy_to_ngrok
+from .views import health, health_live, proxy_to_ngrok
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', health, name='health'),
+    path('health/live/', health_live, name='health-live'),
     path('proxy/', proxy_to_ngrok, name='proxy-root'),
     path('proxy/<path:target_path>', proxy_to_ngrok, name='proxy-to-ngrok'),
 ]
